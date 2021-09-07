@@ -1,6 +1,5 @@
 import {Telegraf} from "telegraf";
-import {getChannels} from "../components/channels";
-import {ingestMessage} from "../components/webhook";
+import {getChannels, ingestMessage} from "../airy";
 import {getTunnelUrl} from "../config";
 
 interface Bot {
@@ -61,7 +60,7 @@ export const addWebhook = async (app) => {
     return refreshBotMap()
         .then(() => {
             app.use((req, res, next) => {
-                if (req.method == 'POST') {
+                if (req.method === 'POST') {
                     const bot = Object.values(botMap).find(({secretPath}) => req.url === secretPath);
                     if (!!bot) {
                         bot.callback(req, res, next);

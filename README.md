@@ -6,11 +6,13 @@ This repository contains a demo integration of the Telegram Bot Api with [Airy](
 
 The goal is to get messages sent to one or more of your Telegram bots into Airy and optionally enable sending messages to Telegram using the Airy send message API.
 
-1. Connect a source using the Airy [Source API](https://docs.airy.co/api/source#create-a-source) and note down the source token.
+**1. Connect a source using the Airy [Source API](https://docs.airy.co/api/source#create-a-source) and note down the source token.**
 
-2. Create a Telegram bot using the [Telegram botfather](https://t.me/botfather)
+**2. Create a Telegram bot using the [Telegram botfather](https://t.me/botfather)**
 
-3. [Create](https://docs.airy.co/api/source#create-a-channel) a source channel and add the token as metadata. Sample payload:
+**3. [Create](https://docs.airy.co/api/source#create-a-channel) a source channel and add the token as metadata.**
+
+Sample payload:
 
 ```json
 {
@@ -22,9 +24,9 @@ The goal is to get messages sent to one or more of your Telegram bots into Airy 
 }
 ``` 
 
-4. Create an `.env` file and set the `SOURCe_TOKEN` to the one you obtained in step 1.
+**4. Create an `.env` file and set the `SOURCe_TOKEN` to the one you obtained in step 1.**
 
-5. Start the development integration by running:
+**5. Start the development integration by running:**
 
 ```shell script
 yarn run dev
@@ -40,7 +42,7 @@ Example app listening at http://localhost:3000
 
 On startup the app will fetch the registered source channels and set the webhooks to point to this app's local tunnel.
 
-6. Handle messages sent from Airy
+**6. (Optional) Handle messages sent from Airy**
 
 Note down the local tunnel url above and [update](https://docs.airy.co/api/source#update-a-source) the action endpoint of your source to `$tunnel_endpoint/action`.
 

@@ -45,7 +45,6 @@ export const ingestMessage = (sourceChannelId: string, message: Message) => {
         headers: {'Content-Type': 'application/json', 'Authorization': token}
     }).then((res) => {
         if (res.ok) { // res.status >= 200 && res.status < 300
-            console.log(res.status)
             return res;
         } else {
             return Promise.reject(res)
